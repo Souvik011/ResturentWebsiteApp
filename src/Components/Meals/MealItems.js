@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 
 import classes from './MealItems.module.css';
+import MealForm from "./Form/MealForm";
 const DUMMY_MEALS = [
     {
       id: 'm1',
@@ -41,6 +42,9 @@ const MealItem = (props) => {
             <div className={classes.price}>
                 ${item.price}
             </div>
+        </div>
+        <div>
+            <MealForm />
         </div>
     </li>
     ));    
