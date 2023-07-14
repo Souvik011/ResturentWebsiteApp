@@ -1,7 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import classes from './MealItems.module.css';
-import MealForm from "./Form/MealForm";
+import Card from "../UI's/Card";
+import AvailableMeals from "./Form/AvailableMeals";
 const DUMMY_MEALS = [
     {
       id: 'm1',
@@ -30,30 +31,23 @@ const DUMMY_MEALS = [
   ];
 
 const MealItem = (props) => {
-    const meallist = DUMMY_MEALS.map((item) => (
-        <li className={classes.meal}>
-        <div>
-            <h3>
-                {item.name}
-            </h3>
-            <div className={classes.description}>
-                {item.description}
-            </div>
-            <div className={classes.price}>
-                ${item.price}
-            </div>
-        </div>
-        <div>
-            <MealForm />
-        </div>
-    </li>
+    const meallist = DUMMY_MEALS.map((meal) => (
+      <AvailableMeals
+      id={meal.id}
+      key={meal.id}
+      name={meal.name}
+      description = {meal.description}
+      price = {meal.price}
+      />
     ));    
 
-      return (<Fragment>
+      return ( <section className={classes.meals}>
+        <Card>
         <ul>
             {meallist}
         </ul>
-      </Fragment>);
+      </Card>
+      </section>);
 
 };
 
